@@ -35,6 +35,8 @@ public class MainFrame extends JFrame{
     private JRadioButton firstHubRadioButton;
     private JRadioButton secondHubRadioButton;
     private JRadioButton thirdHubRadioButton;
+    private JButton exam;
+    private JTextField textField1;
     static int selectedHub;
 
 
@@ -68,6 +70,22 @@ public class MainFrame extends JFrame{
         containerFromACountry.addItem("USA");
 
 
+        exam.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int priority = 1;
+
+                if (btnPriority1.isSelected()) {
+                    priority = 1;
+                } else if (btnPriority2.isSelected()) {
+                    priority = 2;
+                } else if (btnPriority3.isSelected()) {
+                    priority = 3;
+                }
+                textField1.setText(String.valueOf(port.containersChecked(priority)));
+
+            }
+        });
 
         // Button to Add a new Container, management of exception done
         pileButton.addActionListener(new ActionListener() {
